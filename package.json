@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "prettier": "^1.11.1",
+    "ramda": "^0.25.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "redux": "^3.7.2",
     "redux-actions": "^2.3.0",
@@ -16,6 +18,11 @@
     "semi": false,
     "singleQuote": true,
     "trailingComma": "all"
+  },
+  "proxy": {
+    "/v1": {
+      "target": "http://api.wh.geniussports.com"
+    }
   },
   "scripts": {
     "start": "react-scripts start",
