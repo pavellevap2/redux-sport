@@ -1,5 +1,6 @@
 import React from 'react'
 import CompletedMatches from './CompletedMatches'
+import ScheduledMatches from '../containers/ScheduledMatchesContainer'
 import styled from 'styled-components'
 
 const BtnUp = styled.button`
@@ -44,6 +45,7 @@ class HomePage extends React.Component {
 
     return (
       <div>
+        <ScheduledMatches />
         <CompletedMatches completedMatches={completedMatches} />
         <BtnUp onClick={() => this.scrollUp()}>TOP</BtnUp>
       </div>
