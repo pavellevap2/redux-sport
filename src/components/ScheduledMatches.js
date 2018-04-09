@@ -1,4 +1,5 @@
 import React from 'react'
+import ScheduledMatch from './ScheduledMatch'
 
 class ScheduledMatches extends React.Component {
   componentDidMount() {
@@ -8,9 +9,11 @@ class ScheduledMatches extends React.Component {
   render() {
     const { scheduledMatches } = this.props
     return (
-      <div>
-        <button onClick={() => console.log(scheduledMatches)}>matches</button>
-      </div>
+      <ul>
+        {scheduledMatches.map((match, i) => (
+          <ScheduledMatch match={match} key={i} />
+        ))}
+      </ul>
     )
   }
 }

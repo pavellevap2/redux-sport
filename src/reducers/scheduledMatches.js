@@ -3,8 +3,7 @@ import { handleAction } from 'redux-actions'
 
 const scheduledMatches = handleAction(
   [LOAD_SCHEDULED_MATCHES],
-  (state, { payload }) =>
-    payload.filter(match => match.matchStatus === 'SCHEDULED'),
+  (state, { payload }) => payload,
   [],
 )
 export default scheduledMatches

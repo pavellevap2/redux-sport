@@ -4,15 +4,23 @@ export const getCompletedMatches = state =>
   state.matches.filter(match => match.matchStatus === 'COMPLETE')
 
 export const getScheduledMatches = state => {
-  state.scheduledMatches.map(match => {
-    match.matchTime = match.matchTime.slice(0, 10)
-    match.matchTime = match.matchTime
+  const matches = state.scheduledMatches.filter(
+    match => match.matchStatus === 'SCHEDULED',
+  )
+  const selectedMatches = matches.map(match => {
+    const selectedMatch = { ...match }
+    selectedMatch.matchTime = selectedMatch.matchTime.slice(0, 10)
+
+    selectedMatch.matchTime = selectedMatch.matchTime
       .split('')
       .filter(x => x !== '-')
       .join('')
-    match.matchTime = Number(match.matchTime)
-    return match
+    selectedMatch.matchTime = Number(selectedMatch.matchTime)
+    return selectedMatch
   })
   const byTime = R.ascend(R.prop('matchTime'))
-  return R.sort(byTime, state.scheduledMatches).slice(0, 6)
+  return R.sort(byTime, selectedMatches)
 }
+
+export const getFiveScheduledMatches = state =>
+  getScheduledMatches(state).slice(0, 6)
