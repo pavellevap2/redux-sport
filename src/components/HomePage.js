@@ -1,13 +1,31 @@
 import React from 'react'
-import * as R from 'ramda'
 import CompletedMatches from './CompletedMatches'
+
 class HomePage extends React.Component {
-  constructor(props) {
-    super(props)
+  componentDidMount() {
+    document.addEventListener('scroll', this.handleScroll)
+    if (!this.props.completedMatches.length) {
+      this.props.takeMatches()
+    }
   }
 
-  componentDidMount() {
-    this.props.takeMatches()
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = () => {
+    const scrollHeight =
+      document.documentElement.scrollHeight - window.innerHeight
+    const treshold = scrollHeight - 100
+    const scrollTop = document.documentElement.scrollTop
+
+    if (scrollTop >= treshold && !this.isContentLoading) {
+      this.isContentLoading = true
+      this.props.nextPage()
+      this.props.takeMatches()
+    } else if (scrollTop <= treshold && this.isContentLoading) {
+      this.isContentLoading = false
+    }
   }
 
   render() {
@@ -16,10 +34,9 @@ class HomePage extends React.Component {
     return (
       <div>
         <CompletedMatches completedMatches={completedMatches} />
-        <button onClick={() => console.log(completedMatches)}>test</button>
       </div>
-      ///limit offset 10 page 10 pagination api
     )
   }
 }
+
 export default HomePage

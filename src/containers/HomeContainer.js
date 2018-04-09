@@ -1,14 +1,15 @@
 import HomePage from '../components/HomePage'
 import { connect } from 'react-redux'
 import { getCompletedMatches } from '../selectors/matches'
-import { takeMatches } from '../actions/matchesActions'
+import { takeMatches, nextPage } from '../actions/matchesActions'
 
 const mapStateToProps = state => ({
   completedMatches: getCompletedMatches(state),
 })
 
 const mapDispatchToProps = dispatch => ({
-  takeMatches: matches => dispatch(takeMatches(matches)),
+  takeMatches: matchesLength => dispatch(takeMatches(matchesLength)),
+  nextPage: pageLength => dispatch(nextPage(pageLength)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

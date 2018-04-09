@@ -3,7 +3,7 @@ import { handleAction } from 'redux-actions'
 
 const matches = handleAction(
   [LOAD_MATCHES],
-  (state, { payload }) => payload,
+  (state, { payload }) => [...state, ...payload],
   [],
 )
 export default matches
