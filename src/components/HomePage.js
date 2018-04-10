@@ -10,7 +10,7 @@ const BtnUp = styled.button`
 
 class HomePage extends React.Component {
   componentDidMount() {
-    document.addEventListener('scroll', this.handleScroll)
+    document.addEventListener('scroll', this.scrollLoadContent)
 
     if (!this.props.completedMatches.length) {
       this.props.takeMatches()
@@ -18,10 +18,10 @@ class HomePage extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('scroll', this.handleScroll)
+    document.removeEventListener('scroll', this.scrollLoadContent)
   }
 
-  handleScroll = () => {
+  scrollLoadContent = () => {
     const scrollHeight =
       document.documentElement.scrollHeight - window.innerHeight
     const treshold = scrollHeight - 20

@@ -6,6 +6,7 @@ import { takeScheduledMatches } from '../actions/matchesActions'
 const mapStateToProps = state => ({
   scheduledMatches: getFiveScheduledMatches(state),
 })
+
 const mapDispatchToProps = dispatch => ({
   takeScheduledMatches: () => dispatch(takeScheduledMatches()),
 })
