@@ -23,7 +23,7 @@ export const getScheduledMatches = state => {
 }
 
 export const getFiveScheduledMatches = state =>
-  getScheduledMatches(state).slice(0, 6)
+  getScheduledMatches(state).slice(0, 11)
 
 export const getAllMatches = state => state.scheduledMatches
 //переименовать reducerы matches -> completedMatches и scheduledM.. в matches

@@ -1,8 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const ScheduledMatch = ({ match }) => {
+const MatchItem = styled.li`
+  flex-shrink: 0;
+  width: 33.33%;
+`
+
+const ScheduledMatch = ({ match, i }) => {
   return (
-    <li>
+    <MatchItem>
       <div>
         {`${match.competitors[0].competitorName} VS ${
           match.competitors[1].competitorName
@@ -10,7 +16,6 @@ const ScheduledMatch = ({ match }) => {
       </div>
       {match.matchTimeUTC}
       <div />
-
       <div>
         <img
           src={
@@ -29,7 +34,7 @@ const ScheduledMatch = ({ match }) => {
           alt={'logo'}
         />
       </div>
-    </li>
+    </MatchItem>
   )
 }
 export default ScheduledMatch
