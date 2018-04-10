@@ -8,7 +8,8 @@ const MatchesWrapper = styled.div`
 
 const MatchesContainer = styled.ul`
   display: flex;
-  transform: translateX(${props => props.offset * -33.339}%);
+  width: 110%;
+  transform: translateX(${props => props.offset * -32.3 + '%'});
   transition: transform 0.3s;
 `
 
@@ -16,7 +17,7 @@ class ScheduledMatches extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      itemPosition: 0,
+      itemStep: 0,
     }
   }
 
@@ -24,23 +25,25 @@ class ScheduledMatches extends React.Component {
     this.props.takeScheduledMatches()
   }
 
+  nextSlide = () => {
+    if (this.state.itemStep < this.props.scheduledMatches.length - 3)
+      this.setState({
+        itemStep: this.state.itemStep + 1,
+      })
+  }
+
   render() {
-    console.log(this.state.itemPosition)
     const { scheduledMatches } = this.props
+    const { itemStep } = this.state
+
     return (
       <MatchesWrapper>
-        <MatchesContainer offset={this.state.itemPosition}>
+        <MatchesContainer offset={itemStep}>
           {scheduledMatches.map((match, i) => (
             <ScheduledMatch match={match} key={i} />
           ))}
         </MatchesContainer>
-        <button
-          onClick={() =>
-            this.setState({ itemPosition: this.state.itemPosition + 1 })
-          }
-        >
-          next
-        </button>
+        <button onClick={() => this.nextSlide()}>next</button>
       </MatchesWrapper>
     )
   }
