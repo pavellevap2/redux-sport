@@ -18,6 +18,7 @@ const MatchItem = styled.li`
   border: 2px solid ${props => props.theme.tretiary};
   box-shadow: 0 0 1.4em rgba(0, 0, 0, 0.5);
 `
+
 const MatchLogo = styled.img`
   width: 30%;
   height: 15vh;
@@ -28,6 +29,7 @@ const MatchItemImages = styled.div`
   justify-content: space-around;
   padding: 1em 0;
 `
+
 const MatchDate = styled.p`
   padding: 0.5em 0;
   margin: 0;
@@ -44,6 +46,7 @@ const VersusText = styled.span`
   font-family: 'Kurale', serif;
   font-weight: 500;
 `
+
 const MatchBottomBox = styled.div`
   width: 100%;
   height: 10%;
@@ -52,6 +55,7 @@ const MatchBottomBox = styled.div`
   border-top: 1px solid black;
   background: lightgray;
 `
+
 const IconsItems = styled.ul`
   display: flex;
   justify-content: center;
@@ -59,9 +63,11 @@ const IconsItems = styled.ul`
   padding: 0;
   margin: 0;
 `
+
 const IconsItem = styled.li`
   margin: 0 0.5em;
 `
+
 const IconsImage = styled.img`
   width: 1.1em;
   height: 1.1em;

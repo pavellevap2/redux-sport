@@ -17,6 +17,7 @@ const MatchesContainer = styled.ul`
   transition: transform 0.3s;
   align-items: center;
 `
+
 const MatchesBtnLeft = styled.button`
   position: absolute;
   top: 50%;
@@ -24,9 +25,10 @@ const MatchesBtnLeft = styled.button`
   background-color: inherit;
   z-index: 3;
   border: none;
-  transform: translateY(-50%);
+  transform: translateY(-55%);
   font-size: 4em;
 `
+
 const MatchesBtnRight = styled.button`
   position: absolute;
   top: 50%;

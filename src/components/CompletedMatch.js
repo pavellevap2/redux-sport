@@ -1,8 +1,19 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const MatchItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  margin: 2% 20%;
+  border: 2px solid ${props => props.theme.tretiary};
+  border-radius: 8px;
+`
 
 const CompletedMatch = ({ match }) => {
   return (
-    <li>
+    <MatchItem>
       <div>
         {`${match.competitors[0].competitorName} VS ${
           match.competitors[1].competitorName
@@ -31,7 +42,7 @@ const CompletedMatch = ({ match }) => {
           alt={'logo'}
         />
       </div>
-    </li>
+    </MatchItem>
   )
 }
 export default CompletedMatch
