@@ -30,7 +30,7 @@ const SlideImg = styled.img`
 `
 const SlidesNav = styled.ol`
   position: absolute;
-  bottom: 15%;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;

@@ -6,6 +6,8 @@ import store, { sagaMiddleware } from './configureStore'
 import rootSaga from './sagas'
 import { BrowserRouter } from 'react-router-dom'
 import { injectGlobal } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
+import { theme } from './theme'
 
 injectGlobal`
   body{
@@ -25,7 +27,9 @@ sagaMiddleware.run(rootSaga)
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <Root />
+      <ThemeProvider theme={theme}>
+        <Root />
+      </ThemeProvider>
     </Provider>
   </BrowserRouter>,
   document.getElementById('root'),
