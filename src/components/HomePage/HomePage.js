@@ -1,16 +1,24 @@
 import React from 'react'
-import CompletedMatches from './CompletedMatches'
-import ScheduledMatches from '../containers/ScheduledMatchesContainer'
+import CompletedMatches from '../CompletedMatches'
+import ScheduledMatches from '../../containers/ScheduledMatchesContainer'
 import styled from 'styled-components'
+import arrow from './arrow.png'
 
 const BtnUp = styled.button`
   position: fixed;
   bottom: 20em;
+  border: none;
+  background: none;
+  margin-left: 5%;
+`
+const BtnUpImg = styled.img`
+  height: 8em;
+  width: 8em;
 `
 
 class HomePage extends React.Component {
   componentDidMount() {
-    document.addEventListener('scroll', this.scrollLoadContent)
+    document.addEventListener('scroll', this.scrollContent)
 
     if (!this.props.completedMatches.length) {
       this.props.takeMatches()
@@ -18,10 +26,10 @@ class HomePage extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('scroll', this.scrollLoadContent)
+    document.removeEventListener('scroll', this.scrollContent)
   }
 
-  scrollLoadContent = () => {
+  scrollContent = () => {
     const scrollHeight =
       document.documentElement.scrollHeight - window.innerHeight
     const treshold = scrollHeight - 20
@@ -29,11 +37,15 @@ class HomePage extends React.Component {
 
     if (scrollTop >= treshold && !this.isContentLoad) {
       this.isContentLoad = true
-      this.props.nextPage()
-      this.props.takeMatches()
+      this.loadContent()
     } else if (scrollTop <= treshold && this.isContentLoad) {
       this.isContentLoad = false
     }
+  }
+
+  loadContent() {
+    this.props.nextPage()
+    this.props.takeMatches()
   }
 
   scrollUp = () => {
@@ -47,7 +59,9 @@ class HomePage extends React.Component {
       <div>
         <ScheduledMatches />
         <CompletedMatches completedMatches={completedMatches} />
-        <BtnUp onClick={() => this.scrollUp()}>TOP</BtnUp>
+        <BtnUp onClick={() => this.scrollUp()}>
+          <BtnUpImg src={arrow} alt={'arrow'} />
+        </BtnUp>
       </div>
     )
   }

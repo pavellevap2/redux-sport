@@ -11,6 +11,7 @@ const MatchItem = styled.li`
   border: 2px solid ${props => props.theme.tretiary};
   border-top: none;
   border-radius: 8px;
+  box-shadow: 0 0 20px ${props => props.theme.tretiary};
 `
 const MatchDate = styled.div`
   width: 100%;
