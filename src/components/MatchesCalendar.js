@@ -2,6 +2,46 @@ import React from 'react'
 import MatchCalendar from './MatchCalendar'
 import CalendarFiltersContainer from '../containers/CalendarFiltersContainer'
 import CalendarCarousel from './CalendarCarousel'
+import styled from 'styled-components'
+
+const CalendarContainer = styled.div`
+  margin-bottom: 3em;
+`
+
+const Calendar = styled.div`
+  display: flex;
+  width: 70%;
+  margin: 3% 15% 0 15%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 0.4px solid ${props => props.theme.tretiary};
+`
+const CalendarTitle = styled.div`
+  text-align: center;
+  width: 100%;
+  padding: 0.6em 0;
+  font-size: 2em;
+  font-weight: bold;
+  background: ${props => props.theme.secondary};
+  color: ${props => props.theme.primaryBack};
+  border: 1px solid ${props => props.theme.secondary};
+  border-bottom: none;
+`
+const CalendarTable = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+`
+
+const CalendarHeadCell = styled.td`
+  width: 25%;
+  padding: 0.3em 0;
+  background: lightgrey;
+  color: ${props => props.theme.primaryBack};
+  font-size: 1.3em;
+  font-weight: bold;
+  border: 1.5px solid black;
+`
 
 class MatchesCalendar extends React.Component {
   componentDidMount() {
@@ -11,26 +51,28 @@ class MatchesCalendar extends React.Component {
   render() {
     const { matches, teams } = this.props
     return (
-      <div>
+      <CalendarContainer>
         <CalendarCarousel />
-        <div>
+        <Calendar>
+          <CalendarTitle>Расписание предстоящих матчей</CalendarTitle>
           <CalendarFiltersContainer teams={teams} />
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <td>Дата и время</td>
-              <td>Хозяева</td>
-              <td>Гости</td>
-              <td>Арена</td>
-            </tr>
-          </thead>
-          <tbody>
-            {matches.map((match, i) => <MatchCalendar match={match} key={i} />)}
-          </tbody>
-        </table>
-        <button onClick={() => console.log(this.props.matches)}>matches</button>
-      </div>
+          <CalendarTable>
+            <thead>
+              <tr>
+                <CalendarHeadCell>Дата и время</CalendarHeadCell>
+                <CalendarHeadCell>Хозяева</CalendarHeadCell>
+                <CalendarHeadCell>Гости</CalendarHeadCell>
+                <CalendarHeadCell>Арена</CalendarHeadCell>
+              </tr>
+            </thead>
+            <tbody>
+              {matches.map((match, i) => (
+                <MatchCalendar match={match} key={i} id={i} />
+              ))}
+            </tbody>
+          </CalendarTable>
+        </Calendar>
+      </CalendarContainer>
     )
   }
 }
