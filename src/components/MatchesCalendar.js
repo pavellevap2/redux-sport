@@ -1,6 +1,7 @@
 import React from 'react'
 import MatchCalendar from './MatchCalendar'
 import CalendarFiltersContainer from '../containers/CalendarFiltersContainer'
+import CalendarCarousel from './CalendarCarousel'
 
 class MatchesCalendar extends React.Component {
   componentDidMount() {
@@ -11,6 +12,7 @@ class MatchesCalendar extends React.Component {
     const { matches, teams } = this.props
     return (
       <div>
+        <CalendarCarousel />
         <div>
           <CalendarFiltersContainer teams={teams} />
         </div>
