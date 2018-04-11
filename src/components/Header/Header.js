@@ -33,9 +33,7 @@ const HeaderLink = styled(NavLink)`
   font-size: 2em;
   font-weight: bold;
   text-decoration: none;
-
   font-family: 'Yanone Kaffeesatz', sans-serif;
-
   &.active {
     transition: 0.9s;
     padding-bottom: 4px;
