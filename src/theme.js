@@ -3,4 +3,5 @@ export const theme = {
   secondaryBack: '#1e2341',
   primary: 'white',
   secondary: ' #db8429',
+  tretiary: 'darkgray',
 }

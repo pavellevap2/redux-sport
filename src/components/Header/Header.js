@@ -5,13 +5,14 @@ import styled from 'styled-components'
 
 const HeaderContainer = styled.header`
   background-color: ${props => props.theme.primaryBack};
-  width: 100vw;
-  height: 11vh;
-  margin-top: -1%;
+  width: 100%;
+  height: 11%;
 `
 const HeaderItems = styled.ul`
   display: flex;
   align-items: center;
+  padding: 0;
+  margin: 0;
 `
 const HeaderItem = styled.li`
   &:not(:first-child) {

@@ -3,14 +3,39 @@ import ScheduledMatch from './ScheduledMatch'
 import styled from 'styled-components'
 
 const MatchesWrapper = styled.div`
+  margin-top: 3vh;
   overflow-x: hidden;
+  padding: 0;
+  position: relative;
 `
 
 const MatchesContainer = styled.ul`
+  padding: 0;
+  margin: 0;
   display: flex;
-  width: 110%;
-  transform: translateX(${props => props.offset * -32.3 + '%'});
+  transform: translateX(${props => props.offset * -25 + '%'});
   transition: transform 0.3s;
+  align-items: center;
+`
+const MatchesBtnRight = styled.button`
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  background-color: inherit;
+  z-index: 3;
+  border: none;
+  transform: translateY(-50%);
+  font-size: 4em;
+`
+const MatchesBtnLeft = styled.button`
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-55%);
+  background-color: inherit;
+  border: none;
+  z-index: 3;
+  font-size: 4em;
 `
 
 class ScheduledMatches extends React.Component {
@@ -26,7 +51,7 @@ class ScheduledMatches extends React.Component {
   }
 
   nextStep = () => {
-    if (this.state.itemStep < this.props.scheduledMatches.length - 3)
+    if (this.state.itemStep < this.props.scheduledMatches.length - 4)
       this.setState({
         itemStep: this.state.itemStep + 1,
       })
@@ -39,6 +64,7 @@ class ScheduledMatches extends React.Component {
       })
     }
   }
+
   render() {
     const { scheduledMatches } = this.props
     const { itemStep } = this.state
@@ -50,8 +76,8 @@ class ScheduledMatches extends React.Component {
             <ScheduledMatch match={match} key={i} />
           ))}
         </MatchesContainer>
-        <button onClick={() => this.prevStep()}>prev</button>
-        <button onClick={() => this.nextStep()}>next</button>
+        <MatchesBtnRight onClick={() => this.prevStep()}>{'<'}</MatchesBtnRight>
+        <MatchesBtnLeft onClick={() => this.nextStep()}> {'>'} </MatchesBtnLeft>
       </MatchesWrapper>
     )
   }
