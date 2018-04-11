@@ -91,7 +91,7 @@ class CalendarCarousel extends React.Component {
                 color={slideStep === i ? 'darkgray' : 'white'}
                 onClick={() => this.setState({ slideStep: i })}
               >
-                o
+                ○
               </SlidesBtn>
             </SlideNavItem>
           ))}
