@@ -22,7 +22,7 @@ const HeaderItem = styled.li`
   }
   &:first-child {
     margin: 0 5%;
-    background: rgba(${props => props.theme.secondaryBack}, 0.9);
+    box-shadow: 0 0 15px inset rgba(30, 35, 65, 0.5);
     height: 11vh;
     padding: 0 5em;
   }

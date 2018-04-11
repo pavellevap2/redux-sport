@@ -6,26 +6,53 @@ const MatchItem = styled.li`
   flex-direction: column;
   align-items: center;
   width: 60%;
-  margin: 2% 20%;
+  margin: 2.5% 20%;
+  padding-bottom: 1.3em;
   border: 2px solid ${props => props.theme.tretiary};
+  border-top: none;
   border-radius: 8px;
+`
+const MatchDate = styled.div`
+  width: 100%;
+  padding: 0.4em 0;
+  height: 100%;
+  margin-bottom: 1em;
+  border: 3px solid ${props => props.theme.primaryBack};
+  border-radius: 8px;
+  text-align: center;
+  font-size: 2em;
+  color: ${props => props.theme.secondary};
+  background: ${props => props.theme.secondaryBack};
+  font-weight: bold;
+`
+
+const MatchImages = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`
+const MatchImg = styled.img`
+  height: 100%;
+  width: 25%;
+`
+
+const ScoreText = styled.span`
+  font-size: 4em;
+  font-family: 'Kurale', serif;
+  font-weight: 500;
+  color: ${props => props.theme.primaryBack};
 `
 
 const CompletedMatch = ({ match }) => {
+  const date = `${match.matchTime.slice(5, 10)} /
+  ${match.matchTimeUTC.slice(10, 16)}`
+
   return (
     <MatchItem>
-      <div>
-        {`${match.competitors[0].competitorName} VS ${
-          match.competitors[1].competitorName
-        }`}
-      </div>
-      {match.matchTime}
-      <div />
-      <div>{`${match.competitors[0].scoreString}: ${
-        match.competitors[1].scoreString
-      }`}</div>
-      <div>
-        <img
+      <MatchDate>{date} MSK</MatchDate>
+      <MatchImages>
+        <MatchImg
           src={
             match.competitors[0].images.logo.S1 === undefined
               ? match.competitors[0].images.logo.T1.url
@@ -33,7 +60,12 @@ const CompletedMatch = ({ match }) => {
           }
           alt={'logo'}
         />
-        <img
+        <ScoreText>
+          {`${match.competitors[0].scoreString} : ${
+            match.competitors[1].scoreString
+          }`}
+        </ScoreText>
+        <MatchImg
           src={
             match.competitors[1].images.logo.S1 === undefined
               ? match.competitors[1].images.logo.T1.url
@@ -41,7 +73,7 @@ const CompletedMatch = ({ match }) => {
           }
           alt={'logo'}
         />
-      </div>
+      </MatchImages>
     </MatchItem>
   )
 }

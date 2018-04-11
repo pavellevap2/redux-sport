@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const MatchesItems = styled.ul`
   margin-top: 4%;
+  padding: 0;
 `
 
 const CompletedMatches = ({ completedMatches }) => {
