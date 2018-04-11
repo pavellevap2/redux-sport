@@ -8,12 +8,14 @@ const HeaderContainer = styled.header`
   width: 100%;
   height: 11%;
 `
+
 const HeaderItems = styled.ul`
   display: flex;
   align-items: center;
   padding: 0;
   margin: 0;
 `
+
 const HeaderItem = styled.li`
   &:not(:first-child) {
     margin-right: 5%;
@@ -37,6 +39,7 @@ const HeaderLink = styled(NavLink)`
     color: ${props => props.theme.secondary};
   }
 `
+
 const HeaderLogo = styled.img`
   height: 100%;
   width: 100%;

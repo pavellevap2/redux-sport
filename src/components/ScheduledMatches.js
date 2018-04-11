@@ -17,7 +17,7 @@ const MatchesContainer = styled.ul`
   transition: transform 0.3s;
   align-items: center;
 `
-const MatchesBtnRight = styled.button`
+const MatchesBtnLeft = styled.button`
   position: absolute;
   top: 50%;
   left: 0%;
@@ -27,7 +27,7 @@ const MatchesBtnRight = styled.button`
   transform: translateY(-50%);
   font-size: 4em;
 `
-const MatchesBtnLeft = styled.button`
+const MatchesBtnRight = styled.button`
   position: absolute;
   top: 50%;
   right: 0;
@@ -76,8 +76,8 @@ class ScheduledMatches extends React.Component {
             <ScheduledMatch match={match} key={i} />
           ))}
         </MatchesContainer>
-        <MatchesBtnRight onClick={() => this.prevStep()}>{'<'}</MatchesBtnRight>
-        <MatchesBtnLeft onClick={() => this.nextStep()}> {'>'} </MatchesBtnLeft>
+        <MatchesBtnLeft onClick={() => this.prevStep()}>{'<'}</MatchesBtnLeft>
+        <MatchesBtnRight onClick={() => this.nextStep()}>{'>'}</MatchesBtnRight>
       </MatchesWrapper>
     )
   }
