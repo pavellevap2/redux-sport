@@ -10,9 +10,7 @@ const MatchesItems = styled.ul`
 const CompletedMatches = ({ completedMatches }) => {
   return (
     <MatchesItems>
-      {completedMatches.map((match, i) => (
-        <CompletedMatch key={i} match={match} />
-      ))}
+      {completedMatches.map(match => <CompletedMatch match={match} />)}
     </MatchesItems>
   )
 }
