@@ -22,8 +22,7 @@ export const getScheduledMatches = state => {
   return R.sort(byTime, selectedMatches)
 }
 
-export const getFiveScheduledMatches = state =>
+export const getTenScheduledMatches = state =>
   getScheduledMatches(state).slice(0, 11)
 
 export const getAllMatches = state => state.scheduledMatches
-//переименовать reducerы matches -> completedMatches и scheduledM.. в matches

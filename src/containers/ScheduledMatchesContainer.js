@@ -1,10 +1,10 @@
 import ScheduledMatches from '../components/ScheduledMatches'
-import { getFiveScheduledMatches } from '../selectors/matches'
+import { getTenScheduledMatches } from '../selectors/matches'
 import { connect } from 'react-redux'
 import { takeScheduledMatches } from '../actions/matchesActions'
 
 const mapStateToProps = state => ({
-  scheduledMatches: getFiveScheduledMatches(state),
+  scheduledMatches: getTenScheduledMatches(state),
 })
 
 const mapDispatchToProps = dispatch => ({

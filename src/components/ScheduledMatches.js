@@ -52,14 +52,14 @@ class ScheduledMatches extends React.Component {
     this.props.takeScheduledMatches()
   }
 
-  nextStep = () => {
+  showNextSlide = () => {
     if (this.state.itemStep < this.props.scheduledMatches.length - 4)
       this.setState({
         itemStep: this.state.itemStep + 1,
       })
   }
 
-  prevStep = () => {
+  showPrevSlide = () => {
     if (this.state.itemStep > 0) {
       this.setState({
         itemStep: this.state.itemStep - 1,
@@ -78,8 +78,12 @@ class ScheduledMatches extends React.Component {
             <ScheduledMatch match={match} key={i} />
           ))}
         </MatchesContainer>
-        <MatchesBtnLeft onClick={() => this.prevStep()}>{'<'}</MatchesBtnLeft>
-        <MatchesBtnRight onClick={() => this.nextStep()}>{'>'}</MatchesBtnRight>
+        <MatchesBtnLeft onClick={() => this.showPrevSlide()}>
+          {'<'}
+        </MatchesBtnLeft>
+        <MatchesBtnRight onClick={() => this.showNextSlide()}>
+          {'>'}
+        </MatchesBtnRight>
       </MatchesWrapper>
     )
   }

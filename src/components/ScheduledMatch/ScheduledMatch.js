@@ -102,7 +102,7 @@ const ScheduledMatch = ({ match, i }) => {
       <MatchBottomBox>
         <IconsItems>
           {ICONS.map((icon, i) => (
-            <IconsItem>
+            <IconsItem key={i}>
               <IconsImage src={icon} alt="icon" />
             </IconsItem>
           ))}

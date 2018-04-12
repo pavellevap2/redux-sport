@@ -50,6 +50,7 @@ class MatchesCalendar extends React.Component {
 
   render() {
     const { matches, teams } = this.props
+
     return (
       <CalendarContainer>
         <CalendarCarousel />
