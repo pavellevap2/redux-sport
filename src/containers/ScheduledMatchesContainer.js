@@ -1,5 +1,5 @@
 import ScheduledMatches from '../components/ScheduledMatches'
-import { getTenScheduledMatches } from '../selectors/matches'
+import { getTenScheduledMatches } from '../selectors/scheduledMatches'
 import { connect } from 'react-redux'
 import { takeScheduledMatches } from '../actions/matches'
 

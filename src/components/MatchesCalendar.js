@@ -68,7 +68,16 @@ class MatchesCalendar extends React.Component {
             </thead>
             <tbody>
               {matches.map((match, i) => (
-                <MatchCalendar match={match} key={i} id={i} />
+                <MatchCalendar
+                  matchData={[
+                    match.matchTimeUTC,
+                    match.competitors[0].competitorName,
+                    match.competitors[1].competitorName,
+                    match.venue.venueName,
+                  ]}
+                  key={i}
+                  id={i}
+                />
               ))}
             </tbody>
           </CalendarTable>

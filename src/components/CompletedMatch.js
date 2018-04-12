@@ -45,34 +45,19 @@ const ScoreText = styled.span`
   color: ${props => props.theme.primaryBack};
 `
 
-const CompletedMatch = ({ match }) => {
-  return (
-    <MatchItem>
-      <MatchDate>{match.dateMSK} </MatchDate>
-      <MatchImages>
-        <MatchImg
-          src={
-            match.competitors[0].images.logo.S1 === undefined
-              ? match.competitors[0].images.logo.T1.url
-              : match.competitors[0].images.logo.S1.url
-          }
-          alt={'logo'}
-        />
-        <ScoreText>
-          {`${match.competitors[0].scoreString} : ${
-            match.competitors[1].scoreString
-          }`}
-        </ScoreText>
-        <MatchImg
-          src={
-            match.competitors[1].images.logo.S1 === undefined
-              ? match.competitors[1].images.logo.T1.url
-              : match.competitors[1].images.logo.S1.url
-          }
-          alt={'logo'}
-        />
-      </MatchImages>
-    </MatchItem>
-  )
-}
+const CompletedMatch = ({ match }) => (
+  <MatchItem>
+    <MatchDate>{match.dateMSK} </MatchDate>
+    <MatchImages>
+      <MatchImg src={match.firstImg} alt={'logo'} />
+      <ScoreText>
+        {`${match.competitors[0].scoreString} : ${
+          match.competitors[1].scoreString
+        }`}
+      </ScoreText>
+      <MatchImg src={match.secondImg} alt={'logo'} />
+    </MatchImages>
+  </MatchItem>
+)
+
 export default CompletedMatch

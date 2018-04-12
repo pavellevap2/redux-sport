@@ -6,14 +6,9 @@ import styled from 'styled-components'
 const HeaderContainer = styled.header`
   background-color: ${props => props.theme.primaryBack};
   width: 100%;
-  height: 11%;
+  height: 8em;
 `
 //vh -> %
-//преобразовать manager
-//переименовать файлы
-//export и return
-//в саге увеличить сисло страниц
-//объединить редюсерыъ
 //header rem, ul em
 
 const HeaderItems = styled.ul`
@@ -48,6 +43,7 @@ const HeaderLink = styled(NavLink)`
 `
 
 const HeaderLogo = styled.img`
+  padding-top: 0.5em;
   height: 7em;
   width: 7em;
 `

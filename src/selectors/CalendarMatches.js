@@ -1,4 +1,4 @@
-import { getScheduledMatches } from './matches'
+import { getScheduledMatches } from './scheduledMatches'
 import { getDate, getTeamName } from './calendarData'
 
 export const getCalendarMatches = state => {

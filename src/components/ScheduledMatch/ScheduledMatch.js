@@ -73,26 +73,24 @@ const IconsImage = styled.img`
   height: 1.1em;
 `
 
-const ScheduledMatch = ({ match, i }) => {
-  return (
-    <MatchItem>
-      <MatchDate>{match.dateMSK}</MatchDate>
-      <MatchItemImages>
-        <MatchLogo src={match.firstImg} alt={'logo'} />
-        <VersusText>VS</VersusText>
-        <MatchLogo src={match.secondImg} alt={'logo'} />
-      </MatchItemImages>
-      <MatchBottomBox>
-        <IconsItems>
-          {ICONS.map((icon, i) => (
-            <IconsItem key={i}>
-              <IconsImage src={icon} alt="icon" />
-            </IconsItem>
-          ))}
-        </IconsItems>
-      </MatchBottomBox>
-    </MatchItem>
-  )
-}
+const ScheduledMatch = ({ match, i }) => (
+  <MatchItem>
+    <MatchDate>{match.dateMSK}</MatchDate>
+    <MatchItemImages>
+      <MatchLogo src={match.firstImg} alt={'logo'} />
+      <VersusText>VS</VersusText>
+      <MatchLogo src={match.secondImg} alt={'logo'} />
+    </MatchItemImages>
+    <MatchBottomBox>
+      <IconsItems>
+        {ICONS.map((icon, i) => (
+          <IconsItem key={i}>
+            <IconsImage src={icon} alt="icon" />
+          </IconsItem>
+        ))}
+      </IconsItems>
+    </MatchBottomBox>
+  </MatchItem>
+)
 
 export default ScheduledMatch
