@@ -1,5 +1,5 @@
 import { handleAction } from 'redux-actions'
-import { LOAD_ALL_TEAMS } from '../actions/teamsActions'
+import { LOAD_ALL_TEAMS } from '../actions/teams'
 
 const teams = handleAction(
   [LOAD_ALL_TEAMS],

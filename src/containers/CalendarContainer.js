@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import MatchesCalendar from '../components/MatchesCalendar'
-import { loadCalendarData } from '../actions/teamsActions'
+import { loadCalendarData } from '../actions/teams'
 import { getTeams } from '../selectors/teams'
 import { getCalendarMatches } from '../selectors/CalendarMatches'
 

@@ -1,13 +1,13 @@
 import { all, call } from 'redux-saga/effects'
-import watcherGetMatches from './getMatchesSaga'
-import watcherGetShceduledMatches from './getScheduledMatchesSaga'
-import watcherGetCalendarData from './calendarSaga'
+import watcherLoadMatches from './loadMatches'
+import watcherLoadScheduledMatches from './loadScheduledMatches'
+import watcherLoadCalendarData from './loadCalendarData'
 
 const rootReducer = function*() {
   yield all([
-    call(watcherGetMatches),
-    call(watcherGetShceduledMatches),
-    call(watcherGetCalendarData),
+    call(watcherLoadMatches),
+    call(watcherLoadScheduledMatches),
+    call(watcherLoadCalendarData),
   ])
 }
 

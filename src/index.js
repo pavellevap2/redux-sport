@@ -2,12 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Root from './components/Root'
 import { Provider } from 'react-redux'
-import store, { sagaMiddleware } from './configureStore'
-import rootSaga from './sagas'
+import store from './configureStore'
 import { BrowserRouter } from 'react-router-dom'
 import { injectGlobal } from 'styled-components'
 import { ThemeProvider } from 'styled-components'
-import { theme } from './theme'
+import THEME from './theme'
 
 injectGlobal`
   body{
@@ -22,12 +21,10 @@ injectGlobal`
   }
 `
 
-sagaMiddleware.run(rootSaga)
-
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={THEME}>
         <Root />
       </ThemeProvider>
     </Provider>

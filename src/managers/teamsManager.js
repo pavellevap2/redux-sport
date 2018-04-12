@@ -1,4 +1,4 @@
-import { ENDPOINTS } from '../api'
+import ENDPOINTS from '../api'
 
 export const fetchAllTeams = () =>
   fetch(ENDPOINTS.GET_ALL_TEAMS)

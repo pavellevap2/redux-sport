@@ -1,7 +1,7 @@
 import CalendarFilters from '../components/CalendarFilters'
 import { connect } from 'react-redux'
 import { getDate, getTeamName } from '../selectors/calendarData'
-import { selectDate, selectTeamName } from '../actions/calendarActions'
+import { selectDate, selectTeamName } from '../actions/calendar'
 
 const mapStateToProps = state => ({
   date: getDate(state),

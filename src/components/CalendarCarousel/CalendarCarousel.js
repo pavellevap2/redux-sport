@@ -122,7 +122,7 @@ class CalendarCarousel extends React.Component {
         </SlidesNav>
         <SlidesContainer offset={this.state.slideStep}>
           {SLIDES.map((slide, i) => (
-            <SlideItem>
+            <SlideItem key={i}>
               {i % 2 === 0 ? (
                 <SlideItemText size={'2em'} width="30%" top="55%" left="15%">
                   <SlideItemTitle>«Калев» — ЦСКА,</SlideItemTitle>

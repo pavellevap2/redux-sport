@@ -1,4 +1,4 @@
-import { LOAD_MATCHES } from '../actions/matchesActions'
+import { LOAD_MATCHES } from '../actions/matches'
 import { handleAction } from 'redux-actions'
 
 const matches = handleAction(

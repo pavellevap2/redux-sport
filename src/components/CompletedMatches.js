@@ -7,13 +7,12 @@ const MatchesItems = styled.ul`
   padding: 0;
 `
 
-const CompletedMatches = ({ completedMatches }) => {
-  return (
-    <MatchesItems>
-      {completedMatches.map((match, i) => (
-        <CompletedMatch key={i} match={match} />
-      ))}
-    </MatchesItems>
-  )
-}
+const CompletedMatches = ({ completedMatches }) => (
+  <MatchesItems>
+    {completedMatches.map((match, i) => (
+      <CompletedMatch key={i} match={match} />
+    ))}
+  </MatchesItems>
+)
+
 export default CompletedMatches

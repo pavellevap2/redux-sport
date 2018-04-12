@@ -1,4 +1,4 @@
-import { ENDPOINTS } from '../api'
+import ENDPOINTS from '../api'
 
 export const fetchMatches = data =>
   fetch(ENDPOINTS.GET_COMPLETED_MATCHES(data))

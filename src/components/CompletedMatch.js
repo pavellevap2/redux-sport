@@ -46,12 +46,9 @@ const ScoreText = styled.span`
 `
 
 const CompletedMatch = ({ match }) => {
-  const date = `${match.matchTime.slice(5, 10)} /
-  ${match.matchTimeUTC.slice(10, 16)}`
-
   return (
     <MatchItem>
-      <MatchDate>{date} MSK</MatchDate>
+      <MatchDate>{match.dateMSK} </MatchDate>
       <MatchImages>
         <MatchImg
           src={

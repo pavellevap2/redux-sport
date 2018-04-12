@@ -1,5 +1,5 @@
 import { handleAction } from 'redux-actions'
-import { SELECT__DATE, SELECT__TEAM_NAME } from '../../actions/calendarActions'
+import { SELECT__DATE, SELECT__TEAM_NAME } from '../../actions/calendar'
 
 export const date = handleAction(
   [SELECT__DATE],

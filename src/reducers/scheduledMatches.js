@@ -1,4 +1,4 @@
-import { LOAD_SCHEDULED_MATCHES } from '../actions/matchesActions'
+import { LOAD_SCHEDULED_MATCHES } from '../actions/matches'
 import { handleAction } from 'redux-actions'
 
 const scheduledMatches = handleAction(

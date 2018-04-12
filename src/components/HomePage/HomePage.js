@@ -44,7 +44,6 @@ class HomePage extends React.Component {
   }
 
   loadContent() {
-    this.props.nextPage()
     this.props.takeMatches()
   }
 

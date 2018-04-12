@@ -8,6 +8,13 @@ const HeaderContainer = styled.header`
   width: 100%;
   height: 11%;
 `
+//vh -> %
+//преобразовать manager
+//переименовать файлы
+//export и return
+//в саге увеличить сисло страниц
+//объединить редюсерыъ
+//header rem, ul em
 
 const HeaderItems = styled.ul`
   display: flex;
@@ -23,7 +30,6 @@ const HeaderItem = styled.li`
   &:first-child {
     margin: 0 5%;
     box-shadow: 0 0 15px inset rgba(30, 35, 65, 0.5);
-    height: 11vh;
     padding: 0 5em;
   }
 `
@@ -42,28 +48,26 @@ const HeaderLink = styled(NavLink)`
 `
 
 const HeaderLogo = styled.img`
-  height: 100%;
-  width: 100%;
+  height: 7em;
+  width: 7em;
 `
 
-const Header = () => {
-  return (
-    <HeaderContainer>
-      <HeaderItems>
-        <HeaderItem>
-          <HeaderLogo src={logo} alt="logo" />
-        </HeaderItem>
-        <HeaderItem>
-          <HeaderLink exact to="/">
-            Главная
-          </HeaderLink>
-        </HeaderItem>
-        <HeaderItem>
-          <HeaderLink to="/сalendar">Календарь</HeaderLink>
-        </HeaderItem>
-      </HeaderItems>
-    </HeaderContainer>
-  )
-}
+const Header = () => (
+  <HeaderContainer>
+    <HeaderItems>
+      <HeaderItem>
+        <HeaderLogo src={logo} alt="logo" />
+      </HeaderItem>
+      <HeaderItem>
+        <HeaderLink exact to="/">
+          Главная
+        </HeaderLink>
+      </HeaderItem>
+      <HeaderItem>
+        <HeaderLink to="/сalendar">Календарь</HeaderLink>
+      </HeaderItem>
+    </HeaderItems>
+  </HeaderContainer>
+)
 
 export default Header
