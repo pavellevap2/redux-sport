@@ -1,10 +1,11 @@
 import HomePage from '../components/HomePage'
 import { connect } from 'react-redux'
-import { getCompletedMatches } from '../selectors/matches'
+import { getCompletedMatches, getPageNumber } from '../selectors/matches'
 import { takeMatches, nextPage } from '../actions/matches'
 
 const mapStateToProps = state => ({
   completedMatches: getCompletedMatches(state),
+  pageNumber: getPageNumber(state),
 })
 
 const mapDispatchToProps = dispatch => ({

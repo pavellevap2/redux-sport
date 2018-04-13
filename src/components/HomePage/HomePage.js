@@ -9,7 +9,7 @@ const BtnUp = styled.button`
   bottom: 20em;
   border: none;
   background: none;
-  margin-left: 5%;
+  margin-left: 5em;
 `
 const BtnUpImg = styled.img`
   height: 8em;
@@ -17,6 +17,13 @@ const BtnUpImg = styled.img`
 `
 
 class HomePage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isOnTheTop: false,
+    }
+  }
+
   componentDidMount() {
     document.addEventListener('scroll', this.scrollContent)
 
@@ -32,13 +39,13 @@ class HomePage extends React.Component {
   scrollContent = () => {
     const scrollHeight =
       document.documentElement.scrollHeight - window.innerHeight
-    const treshold = scrollHeight - 20
+    const threshold = scrollHeight - 20
     const scrollTop = document.documentElement.scrollTop
 
-    if (scrollTop >= treshold && !this.isContentLoad) {
+    if (scrollTop >= threshold && !this.isContentLoad) {
       this.isContentLoad = true
       this.loadContent()
-    } else if (scrollTop <= treshold && this.isContentLoad) {
+    } else if (scrollTop <= threshold && this.isContentLoad) {
       this.isContentLoad = false
     }
   }
@@ -49,17 +56,23 @@ class HomePage extends React.Component {
 
   scrollUp = () => {
     window.scrollTo(0, 0)
+    this.setState({
+      isOnTheTop: !this.state.isOnTheTop,
+    })
   }
 
   render() {
-    const { completedMatches } = this.props
+    const { completedMatches, pageNumber } = this.props
+    const { isOnTheTop } = this.state
 
     return (
       <div>
         <ScheduledMatches />
         <CompletedMatches completedMatches={completedMatches} />
         <BtnUp onClick={() => this.scrollUp()}>
-          <BtnUpImg src={arrow} alt={'arrow'} />
+          {pageNumber > 1 && !isOnTheTop ? (
+            <BtnUpImg src={arrow} alt={'arrow'} />
+          ) : null}
         </BtnUp>
       </div>
     )

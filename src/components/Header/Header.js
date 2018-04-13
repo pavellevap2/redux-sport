@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const HeaderContainer = styled.header`
   background-color: ${props => props.theme.primaryBack};
   width: 100%;
-  height: 8em;
+  height: 7rem;
 `
 //vh -> %
 //header rem, ul em
@@ -16,6 +16,7 @@ const HeaderItems = styled.ul`
   align-items: center;
   padding: 0;
   margin: 0;
+  font-size: 1em;
 `
 
 const HeaderItem = styled.li`
@@ -44,7 +45,7 @@ const HeaderLink = styled(NavLink)`
 
 const HeaderLogo = styled.img`
   padding-top: 0.5em;
-  height: 7em;
+  height: 6em;
   width: 7em;
 `
 
