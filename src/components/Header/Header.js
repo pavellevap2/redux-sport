@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const HeaderContainer = styled.header`
   background-color: ${props => props.theme.primaryBack};
   width: 100%;
-  height: 11%;
+  height: 7rem;
 `
 
 const HeaderItems = styled.ul`
@@ -14,6 +14,7 @@ const HeaderItems = styled.ul`
   align-items: center;
   padding: 0;
   margin: 0;
+  font-size: 1em;
 `
 
 const HeaderItem = styled.li`
@@ -23,7 +24,6 @@ const HeaderItem = styled.li`
   &:first-child {
     margin: 0 5%;
     box-shadow: 0 0 15px inset rgba(30, 35, 65, 0.5);
-    height: 11vh;
     padding: 0 5em;
   }
 `
@@ -42,28 +42,27 @@ const HeaderLink = styled(NavLink)`
 `
 
 const HeaderLogo = styled.img`
-  height: 100%;
-  width: 100%;
+  padding-top: 0.5em;
+  height: 6em;
+  width: 7em;
 `
 
-const Header = () => {
-  return (
-    <HeaderContainer>
-      <HeaderItems>
-        <HeaderItem>
-          <HeaderLogo src={logo} alt="logo" />
-        </HeaderItem>
-        <HeaderItem>
-          <HeaderLink exact to="/">
-            Главная
-          </HeaderLink>
-        </HeaderItem>
-        <HeaderItem>
-          <HeaderLink to="/сalendar">Календарь</HeaderLink>
-        </HeaderItem>
-      </HeaderItems>
-    </HeaderContainer>
-  )
-}
+const Header = () => (
+  <HeaderContainer>
+    <HeaderItems>
+      <HeaderItem>
+        <HeaderLogo src={logo} alt="logo" />
+      </HeaderItem>
+      <HeaderItem>
+        <HeaderLink exact to="/">
+          Главная
+        </HeaderLink>
+      </HeaderItem>
+      <HeaderItem>
+        <HeaderLink to="/сalendar">Календарь</HeaderLink>
+      </HeaderItem>
+    </HeaderItems>
+  </HeaderContainer>
+)
 
 export default Header

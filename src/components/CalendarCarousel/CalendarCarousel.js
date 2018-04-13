@@ -6,12 +6,17 @@ import styled from 'styled-components'
 const SLIDES = [firstImg, secondImg, firstImg, secondImg]
 
 const SlidesWrapper = styled.div`
-  overflow-x: hidden;
+  overflow: hidden;
+  margin-top: -7rem;
+  padding-top: 7rem;
+  height: 100vh;
+  box-sizing: border-box;
 `
 
 const SlidesContainer = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
   transform: translateX(${props => props.offset * -100 + '%'});
   transition: transform 1s;
 `
@@ -19,9 +24,8 @@ const SlidesContainer = styled.div`
 const SlideItem = styled.div`
   flex-shrink: 0;
   list-style: none;
-  padding: 0;
-  margin: 0;
   width: 100%;
+  height: 100%;
   position: relative;
 `
 
@@ -47,7 +51,7 @@ const SlideItemTitle = styled.h3`
 
 const SlideImg = styled.img`
   width: 100%;
-  height: 80vh;
+  height: 100%;
 `
 
 const SlidesNav = styled.ol`
@@ -122,9 +126,9 @@ class CalendarCarousel extends React.Component {
         </SlidesNav>
         <SlidesContainer offset={this.state.slideStep}>
           {SLIDES.map((slide, i) => (
-            <SlideItem>
+            <SlideItem key={i}>
               {i % 2 === 0 ? (
-                <SlideItemText size={'2em'} width="30%" top="55%" left="15%">
+                <SlideItemText size={'2em'} width="30%" top="35%" left="15%">
                   <SlideItemTitle>«Калев» — ЦСКА,</SlideItemTitle>
                   <p>
                     «Цмоки-Минск» — «Химки». <br />
@@ -133,7 +137,7 @@ class CalendarCarousel extends React.Component {
                   </p>
                 </SlideItemText>
               ) : (
-                <SlideItemText size={'1em'} width="45%" top="35%" left="10%">
+                <SlideItemText size={'1em'} width="45%" top="45%" left="10%">
                   <SlideItemTitle>Топ 10 моментов недели</SlideItemTitle>
                   <p>
                     Шакил Маккиссик держит марку, Дмитрий Узинский опровергает

@@ -73,43 +73,24 @@ const IconsImage = styled.img`
   height: 1.1em;
 `
 
-const ScheduledMatch = ({ match, i }) => {
-  const date = `${match.matchTimeUTC.slice(5, 10)} /
-   ${match.matchTimeUTC.slice(10, 16)}`
-
-  return (
-    <MatchItem>
-      <MatchDate>{date} MSK</MatchDate>
-      <MatchItemImages>
-        <MatchLogo
-          src={
-            match.competitors[0].images.logo.S1 === undefined
-              ? match.competitors[0].images.logo.T1.url
-              : match.competitors[0].images.logo.S1.url
-          }
-          alt={'logo'}
-        />
-        <VersusText>VS</VersusText>
-        <MatchLogo
-          src={
-            match.competitors[1].images.logo.S1 === undefined
-              ? match.competitors[1].images.logo.T1.url
-              : match.competitors[1].images.logo.S1.url
-          }
-          alt={'logo'}
-        />
-      </MatchItemImages>
-      <MatchBottomBox>
-        <IconsItems>
-          {ICONS.map((icon, i) => (
-            <IconsItem key={i}>
-              <IconsImage src={icon} alt="icon" />
-            </IconsItem>
-          ))}
-        </IconsItems>
-      </MatchBottomBox>
-    </MatchItem>
-  )
-}
+const ScheduledMatch = ({ match, i }) => (
+  <MatchItem>
+    <MatchDate>{match.dateMSK}</MatchDate>
+    <MatchItemImages>
+      <MatchLogo src={match.firstImg} alt={'logo'} />
+      <VersusText>VS</VersusText>
+      <MatchLogo src={match.secondImg} alt={'logo'} />
+    </MatchItemImages>
+    <MatchBottomBox>
+      <IconsItems>
+        {ICONS.map((icon, i) => (
+          <IconsItem key={i}>
+            <IconsImage src={icon} alt="icon" />
+          </IconsItem>
+        ))}
+      </IconsItems>
+    </MatchBottomBox>
+  </MatchItem>
+)
 
 export default ScheduledMatch

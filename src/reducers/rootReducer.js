@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux'
-import matches from './matches'
-import pageNumber from './pageNumber'
+import matchesData from './matches'
 import scheduledMatches from './scheduledMatches'
 import teams from './teams'
 import calendarReducer from './CalendarFilters/calendarFiltersReducer'
 
 const rootReducer = combineReducers({
-  matches,
-  pageNumber,
+  matchesData,
   scheduledMatches,
   teams,
   calendarReducer,

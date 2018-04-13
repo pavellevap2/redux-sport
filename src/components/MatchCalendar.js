@@ -11,27 +11,19 @@ const CalendarCell = styled.td`
   border: 1.5px solid ${props => props.theme.tretiary};
 `
 
-const MatchCalendar = ({ match, id }) => {
-  const MATCH_DATA = [
-    match.matchTimeUTC,
-    match.competitors[0].competitorName,
-    match.competitors[1].competitorName,
-    match.venue.venueName,
-  ]
+const MatchCalendar = ({ matchData, id }) => (
+  <tr>
+    {matchData.map((match, i) => (
+      <CalendarCell
+        key={i}
+        weight={id % 2 !== 0 ? 'normal' : 'bold'}
+        color={id % 2 !== 0 ? '#1d1e30' : 'lightgrey'}
+        background={id % 2 !== 0 ? 'lightgrey' : '#1d1e30'}
+      >
+        {match}
+      </CalendarCell>
+    ))}
+  </tr>
+)
 
-  return (
-    <tr>
-      {MATCH_DATA.map((match, i) => (
-        <CalendarCell
-          key={i}
-          weight={id % 2 !== 0 ? 'normal' : 'bold'}
-          color={id % 2 !== 0 ? '#1d1e30' : 'lightgrey'}
-          background={id % 2 !== 0 ? 'lightgrey' : '#1d1e30'}
-        >
-          {match}
-        </CalendarCell>
-      ))}
-    </tr>
-  )
-}
 export default MatchCalendar
