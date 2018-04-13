@@ -1,7 +1,7 @@
 import ENDPOINTS from '../api'
 
-export const fetchMatches = data =>
-  fetch(ENDPOINTS.GET_COMPLETED_MATCHES(data))
+export const fetchMatches = (limit, offset) =>
+  fetch(ENDPOINTS.GET_COMPLETED_MATCHES(limit, offset))
     .then(response => response.json())
     .then(response => response.response.data)
     .catch(err => console.log(err))

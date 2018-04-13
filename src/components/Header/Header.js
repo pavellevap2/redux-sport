@@ -8,8 +8,6 @@ const HeaderContainer = styled.header`
   width: 100%;
   height: 7rem;
 `
-//vh -> %
-//header rem, ul em
 
 const HeaderItems = styled.ul`
   display: flex;

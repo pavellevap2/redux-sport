@@ -6,7 +6,7 @@ import { getPageNumber } from '../selectors/matches'
 const loadMatches = function*() {
   yield put(nextPage())
   const pageLength = yield select(getPageNumber)
-  const matches = yield call(fetchMatches, pageLength * 10)
+  const matches = yield call(fetchMatches, 10, pageLength * 10)
   yield put(fetchGetMatches(matches))
 }
 
