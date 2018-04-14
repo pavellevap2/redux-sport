@@ -12,10 +12,12 @@ const BtnUp = styled.button`
   background: none;
   margin-left: 5em;
 `
+
 const BtnUpImg = styled.img`
   height: 8em;
   width: 8em;
 `
+
 const Preloader = styled.div`
   height: 80%;
   width: 100%;
@@ -24,6 +26,7 @@ const Preloader = styled.div`
   align-items: center;
   position: absolute;
 `
+
 const PreloaderImg = styled.img.attrs({ src: preloader, alt: 'preloader' })`
   margin-top: 2em;
   animation: preloader-logo-spin infinite 30s linear;
@@ -90,21 +93,26 @@ class HomePage extends React.Component {
       isScheduledMatchesLoading,
     } = this.props
     const { isOnTheTop } = this.state
+    console.log(isScheduledMatchesLoading)
     return (
       <div>
-        {!isMatchesLoading && pageNumber <= 1 ? (
+        {!isMatchesLoading && !isScheduledMatchesLoading && pageNumber <= 1 ? (
           <Preloader>
             <PreloaderImg />
           </Preloader>
         ) : (
           <div>
             <ScheduledMatches />
-            <CompletedMatches completedMatches={completedMatches} />
-            <BtnUp onClick={() => this.scrollUp()}>
-              {pageNumber > 1 && !isOnTheTop ? (
-                <BtnUpImg src={arrow} alt={'arrow'} />
-              ) : null}
-            </BtnUp>
+            {!isScheduledMatchesLoading ? null : (
+              <div>
+                <CompletedMatches completedMatches={completedMatches} />
+                <BtnUp onClick={this.scrollUp}>
+                  {pageNumber > 1 && !isOnTheTop ? (
+                    <BtnUpImg src={arrow} alt={'arrow'} />
+                  ) : null}
+                </BtnUp>
+              </div>
+            )}
           </div>
         )}
       </div>

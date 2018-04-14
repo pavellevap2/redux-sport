@@ -7,8 +7,10 @@ import {
 } from '../actions/matches'
 
 const getScheduledMatches = function*() {
+  yield put(scheduledMatchesLOading(false))
   const matches = yield call(fetchMatches, 500, 0)
   yield put(loadScheduledMatches(matches))
+  yield put(scheduledMatchesLOading(true))
 }
 
 const watcherLoadScheduledMatches = function*() {

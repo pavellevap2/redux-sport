@@ -14,7 +14,6 @@ const loadMatches = function*() {
   const pageLength = yield select(getPageNumber)
   const matches = yield call(fetchMatches, 10, pageLength * 10)
   yield put(fetchGetMatches(matches))
-
   yield put(matchesLoading(true))
 }
 
