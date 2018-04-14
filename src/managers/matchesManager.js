@@ -8,8 +8,8 @@ export const fetchMatches = R.pipeP(
   R.path(['response', 'data']),
   R.map(
     R.applySpec({
-      firstTeamName: R.path(['competitors', '0', 'clubName']),
-      secondTeamName: R.path(['competitors', '1', 'clubName']),
+      firstTeamName: R.path(['competitors', '0', 'competitorName']),
+      secondTeamName: R.path(['competitors', '1', 'competitorName']),
       firstImg: item =>
         R.path(['competitors', '0', 'images', 'logo', 'S1'], item) === undefined
           ? R.path(['competitors', '0', 'images', 'logo', 'T1', 'url'], item)
