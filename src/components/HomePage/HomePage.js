@@ -119,5 +119,5 @@ class HomePage extends React.Component {
     )
   }
 }
-
+//спросить сергея
 export default HomePage
