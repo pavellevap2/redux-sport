@@ -3,6 +3,7 @@ import { put, call, takeEvery } from 'redux-saga/effects'
 import {
   loadScheduledMatches,
   TAKE_SCHEDULED_MATCHES,
+  scheduledMatchesLOading,
 } from '../actions/matches'
 
 const getScheduledMatches = function*() {

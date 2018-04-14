@@ -75,7 +75,7 @@ const IconsImage = styled.img`
 
 const ScheduledMatch = ({ match, i }) => (
   <MatchItem>
-    <MatchDate>{match.dateMSK}</MatchDate>
+    <MatchDate>{match.dateTimeMSK}</MatchDate>
     <MatchItemImages>
       <MatchLogo src={match.firstImg} alt={'logo'} />
       <VersusText>VS</VersusText>

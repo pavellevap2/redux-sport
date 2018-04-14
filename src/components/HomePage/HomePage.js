@@ -3,6 +3,7 @@ import CompletedMatches from '../CompletedMatches'
 import ScheduledMatches from '../../containers/ScheduledMatchesContainer'
 import styled from 'styled-components'
 import arrow from './arrow.png'
+import preloader from './preloader.jpg'
 
 const BtnUp = styled.button`
   position: fixed;
@@ -14,6 +15,26 @@ const BtnUp = styled.button`
 const BtnUpImg = styled.img`
   height: 8em;
   width: 8em;
+`
+const Preloader = styled.div`
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+`
+const PreloaderImg = styled.img.attrs({ src: preloader, alt: 'preloader' })`
+  margin-top: 2em;
+  animation: preloader-logo-spin infinite 30s linear;
+  @keyframes preloader-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 `
 
 class HomePage extends React.Component {
@@ -62,18 +83,30 @@ class HomePage extends React.Component {
   }
 
   render() {
-    const { completedMatches, pageNumber } = this.props
+    const {
+      completedMatches,
+      pageNumber,
+      isMatchesLoading,
+      isScheduledMatchesLoading,
+    } = this.props
     const { isOnTheTop } = this.state
-
     return (
       <div>
-        <ScheduledMatches />
-        <CompletedMatches completedMatches={completedMatches} />
-        <BtnUp onClick={() => this.scrollUp()}>
-          {pageNumber > 1 && !isOnTheTop ? (
-            <BtnUpImg src={arrow} alt={'arrow'} />
-          ) : null}
-        </BtnUp>
+        {!isMatchesLoading && pageNumber <= 1 ? (
+          <Preloader>
+            <PreloaderImg />
+          </Preloader>
+        ) : (
+          <div>
+            <ScheduledMatches />
+            <CompletedMatches completedMatches={completedMatches} />
+            <BtnUp onClick={() => this.scrollUp()}>
+              {pageNumber > 1 && !isOnTheTop ? (
+                <BtnUpImg src={arrow} alt={'arrow'} />
+              ) : null}
+            </BtnUp>
+          </div>
+        )}
       </div>
     )
   }
