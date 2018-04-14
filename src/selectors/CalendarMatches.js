@@ -8,10 +8,10 @@ export const getCalendarMatches = state => {
 
   return allMatches.filter(
     match =>
-      (match.competitors[0].competitorName === teamName ||
-        match.competitors[1].competitorName === teamName ||
+      (match.firstTeamName === teamName ||
+        match.secondTeamName === teamName ||
         teamName === 'Все команды' ||
         !teamName) &&
-      (date === match.matchTimeUTC[6] || !date || date === 'Все месяцы'),
+      (date === match.dateTimeUTC[6] || !date || date === 'Все месяцы'),
   )
 }

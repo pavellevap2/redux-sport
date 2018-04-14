@@ -70,7 +70,6 @@ class ScheduledMatches extends React.Component {
   render() {
     const { scheduledMatches } = this.props
     const { itemStep } = this.state
-
     return (
       <MatchesWrapper>
         <MatchesContainer offset={itemStep}>

@@ -47,13 +47,11 @@ const ScoreText = styled.span`
 
 const CompletedMatch = ({ match }) => (
   <MatchItem>
-    <MatchDate>{match.dateMSK} </MatchDate>
+    <MatchDate>{match.dateTimeMSK} </MatchDate>
     <MatchImages>
       <MatchImg src={match.firstImg} alt={'logo'} />
       <ScoreText>
-        {`${match.competitors[0].scoreString} : ${
-          match.competitors[1].scoreString
-        }`}
+        {`${match.firstTeamScore} : ${match.secondTeamScore}`}
       </ScoreText>
       <MatchImg src={match.secondImg} alt={'logo'} />
     </MatchImages>

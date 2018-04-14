@@ -31,10 +31,10 @@ const MatchesCalendar = ({ matches }) => (
       {matches.map((match, i) => (
         <MatchCalendar
           matchData={[
-            match.matchTimeUTC,
-            match.competitors[0].competitorName,
-            match.competitors[1].competitorName,
-            match.venue.venueName,
+            match.dateTimeUTC,
+            match.firstTeamName,
+            match.secondTeamName,
+            match.venueName,
           ]}
           key={i}
           id={i}
