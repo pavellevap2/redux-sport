@@ -78,12 +78,8 @@ class ScheduledMatches extends React.Component {
             <ScheduledMatch match={match} key={i} />
           ))}
         </MatchesContainer>
-        <MatchesBtnLeft onClick={() => this.showPrevSlide()}>
-          {'<'}
-        </MatchesBtnLeft>
-        <MatchesBtnRight onClick={() => this.showNextSlide()}>
-          {'>'}
-        </MatchesBtnRight>
+        <MatchesBtnLeft onClick={this.showPrevSlide}>{'<'}</MatchesBtnLeft>
+        <MatchesBtnRight onClick={this.showNextSlide}>{'>'}</MatchesBtnRight>
       </MatchesWrapper>
     )
   }
