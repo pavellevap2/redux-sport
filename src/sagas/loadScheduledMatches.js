@@ -8,7 +8,7 @@ import {
 
 const getScheduledMatches = function*() {
   yield put(scheduledMatchesLOading(false))
-  const { data: matches, meta } = yield call(fetchMatches, 500, 0)
+  const { data: matches } = yield call(fetchMatches, 500, 0)
   yield put(loadScheduledMatches(matches))
   yield put(scheduledMatchesLOading(true))
 }
