@@ -39,6 +39,29 @@ const PreloaderImg = styled.img.attrs({ src: preloader, alt: 'preloader' })`
     }
   }
 `
+const LilPreloderContainer = styled.div`
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+`
+
+const LilPreloader = styled.img.attrs({ src: preloader, alt: 'preloader' })`
+  margin-top: 4em;
+  width: 20em;
+  height: 7em;
+  animation: preloader-logo-spin infinite 30s linear;
+  @keyframes preloader-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -91,9 +114,9 @@ class HomePage extends React.Component {
       pageNumber,
       isMatchesLoading,
       isScheduledMatchesLoading,
+      limit,
     } = this.props
     const { isOnTheTop } = this.state
-    console.log(isScheduledMatchesLoading)
     return (
       <div>
         {!isMatchesLoading && !isScheduledMatchesLoading && pageNumber <= 1 ? (
@@ -106,6 +129,12 @@ class HomePage extends React.Component {
             {!isScheduledMatchesLoading ? null : (
               <div>
                 <CompletedMatches completedMatches={completedMatches} />
+                {limit ? (
+                  <LilPreloderContainer>
+                    <LilPreloader />
+                  </LilPreloderContainer>
+                ) : null}
+
                 <BtnUp onClick={this.scrollUp}>
                   {pageNumber > 1 && !isOnTheTop ? (
                     <BtnUpImg src={arrow} alt={'arrow'} />

@@ -1,7 +1,8 @@
-export const getScheduledMatches = state =>
-  state.scheduledMatchesData.scheduledMatches.filter(
+export const getScheduledMatches = state => {
+  return state.scheduledMatchesData.scheduledMatches.filter(
     match => match.status === 'SCHEDULED',
   )
+}
 
 export const getTenScheduledMatches = state =>
   getScheduledMatches(state).slice(0, 11)

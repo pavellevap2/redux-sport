@@ -4,6 +4,7 @@ import {
   getCompletedMatches,
   getPageNumber,
   getMatchesLoading,
+  getMatchesLimit,
 } from '../selectors/matches'
 import { takeMatches, nextPage } from '../actions/matches'
 import { getScheduledMatchesLoading } from '../selectors/scheduledMatches'
@@ -13,6 +14,7 @@ const mapStateToProps = state => ({
   pageNumber: getPageNumber(state),
   isMatchesLoading: getMatchesLoading(state),
   isScheduledMatchesLoading: getScheduledMatchesLoading(state),
+  limit: getMatchesLimit(state),
 })
 
 const mapDispatchToProps = dispatch => ({
